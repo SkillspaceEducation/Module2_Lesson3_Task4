@@ -1,26 +1,42 @@
 import java.util.regex.Pattern;
 
 public class ClientValidator {
-    boolean validateEmail(Client client) {
-        boolean result = false;
-        client.getEmail();
-        return result;
+    public static void validateEmail(Client client) {
+        boolean result;
+        String regex = "[a-z0-9-_\\.]@.[a-z]{2,6}.ru";
+        result = Pattern.matches(regex, client.getEmail());
+        if (result) {
+            System.out.println("Valide email");
+        } else {
+            System.out.println("Invalide email");
+        }
     }
 
-    boolean validateIP(Client client) {
-        boolean result = false;
-        client.getIp();
-        return result;
+    public static void validateIP(Client client) {
+        boolean result;
+        String[] ip = client.getIp().split("\\.");
+        for (String str : ip) {
+            if (str.equals("255")) {
+
+            }
+        }
+        String regex = "[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}";
+        result = Pattern.matches(regex, client.getIp());
+        if (result) {
+            System.out.println("Valide ip");
+        } else {
+            System.out.println("Invalide ip");
+        }
     }
 
-    boolean validateUrl(Client client) {
+    public static void validateUrl(Client client) {
+        boolean result;
         String regex = ".*http://.*";
-        return Pattern.matches(regex, client.getUrl());
+        result = Pattern.matches(regex, client.getUrl());
     }
 
-    boolean validateAddress(Client client) {
+    public static void validateAddress(Client client) {
         boolean result = false;
         client.getAddress();
-        return result;
     }
 }
