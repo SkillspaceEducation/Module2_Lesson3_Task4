@@ -10,7 +10,7 @@ public class ClientTest {
     }
 
     public static void main(String[] args) {
-        Client client = new Client("a1@inbox.ru", "350.0.0.1", "", "https://a.ru");
+        Client client = new Client("a1@inbox.ru", "127.0.0.1", "", "https://a.ru");
 
         clientValidator(client);
 

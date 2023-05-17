@@ -4,6 +4,13 @@ public class Client {
     private String address;
     private String url;
 
+    public Client(String email, String ip, String address, String url) {
+        this.email = email;
+        this.ip = ip;
+        this.address = address;
+        this.url = url;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -33,13 +40,6 @@ public class Client {
     }
 
     public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Client(String email, String ip, String address, String url) {
-        this.email = email;
-        this.ip = ip;
-        this.address = address;
         this.url = url;
     }
 }

@@ -14,13 +14,7 @@ public class ClientValidator {
 
     public static void validateIP(Client client) {
         boolean result;
-        String[] ip = client.getIp().split("\\.");
-        for (String str : ip) {
-            if (str.equals("255")) {
-
-            }
-        }
-        String regex = "[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}";
+        String regex = "((\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}";
         result = Pattern.matches(regex, client.getIp());
         if (result) {
             System.out.println("Valide ip");
