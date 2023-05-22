@@ -1,9 +1,9 @@
 import java.util.regex.Pattern;
 
-public class ClientValidator {
-    public static void validateEmail(Client client) {
+class ClientValidator {
+    public void validateEmail(Client client) {
         boolean result;
-        String regex = "[a-z0-9-_\\.]@.[a-z]{2,6}.ru";
+        String regex = "^((\\w|[-+])+(\\.[\\w-]+)*@[\\w-]+((\\.[\\d\\p{Alpha}]+)*(\\.\\p{Alpha}{2})*)*)$";
         result = Pattern.matches(regex, client.getEmail());
         if (result) {
             System.out.println("Valide email");
@@ -12,9 +12,9 @@ public class ClientValidator {
         }
     }
 
-    public static void validateIP(Client client) {
+    public void validateIP(Client client) {
         boolean result;
-        String regex = "((\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}";
+        String regex = "^(((\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}(\\d|[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5]))$";
         result = Pattern.matches(regex, client.getIp());
         if (result) {
             System.out.println("Valide ip");
@@ -23,13 +23,18 @@ public class ClientValidator {
         }
     }
 
-    public static void validateUrl(Client client) {
+    public void validateUrl(Client client) {
         boolean result;
-        String regex = ".*http://.*";
+        String regex = "^(http|https):/{2}[\\w]+(/{2}|\\.[a-z]+)$";
         result = Pattern.matches(regex, client.getUrl());
+        if (result) {
+            System.out.println("Valide url");
+        } else {
+            System.out.println("Invalide url");
+        }
     }
 
-    public static void validateAddress(Client client) {
+    public void validateAddress(Client client) {
         boolean result = false;
         client.getAddress();
     }

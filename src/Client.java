@@ -1,4 +1,4 @@
-public class Client {
+class Client {
     private String email;
     private String ip;
     private String address;
