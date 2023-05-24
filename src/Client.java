@@ -1,14 +1,24 @@
 class Client {
+    private String name;
     private String email;
     private String ip;
     private String address;
     private String url;
 
-    public Client(String email, String ip, String address, String url) {
+    public Client(String name, String email, String ip, String address, String url) {
+        this.name = name;
         this.email = email;
         this.ip = ip;
         this.address = address;
         this.url = url;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
